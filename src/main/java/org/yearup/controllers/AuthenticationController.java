@@ -24,7 +24,7 @@ import org.yearup.security.jwt.JWTFilter;
 import org.yearup.security.jwt.TokenProvider;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @PreAuthorize("permitAll()")
 public class AuthenticationController {
 
