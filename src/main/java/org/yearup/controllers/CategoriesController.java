@@ -42,11 +42,11 @@ public class CategoriesController {
     @GetMapping("categories/{id}")
     public Category getById(@PathVariable int id) {
         // get the category by id
-        Category c = categoryDao.getById(id);
-        if (c == null){
+        Category category = categoryDao.getById(id);
+        if (category == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } else {
-            return c;
+            return category;
         }
     }
 
@@ -67,7 +67,6 @@ public class CategoriesController {
         // insert the category
         return categoryDao.create(category);
     }
-
     // add annotation to call this method for a PUT (update) action - the url path must include the categoryId
     // add annotation to ensure that only an ADMIN can call this function
     @PutMapping("categories/{id}")
@@ -76,7 +75,6 @@ public class CategoriesController {
         // update the category by id
         return categoryDao.update(id, category);
     }
-
 
     // add annotation to call this method for a DELETE action - the url path must include the categoryId
     // add annotation to ensure that only an ADMIN can call this function
